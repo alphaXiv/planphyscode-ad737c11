@@ -49,27 +49,30 @@ def _json_load(path: str | Path) -> Any:
 def _download_assets(config: dict[str, Any]) -> dict[str, Any]:
     """Selectively fetch only the two checkpoints, nine tests, and six maps."""
     assets: dict[str, Any] = {"models": {}, "tests": {}, "items": {}, "schemas": {}}
-    checkpoint = f"checkpoint-{config['checkpoint']}"
-    model_files = (
-        "config.json",
-        "generation_config.json",
-        "model.safetensors",
-        "special_tokens_map.json",
-        "tokenizer.json",
-        "tokenizer_config.json",
-        "chat_template.jinja",
-    )
-    for model_spec in config["models"]:
-        directory = model_spec["directory"]
-        patterns = [f"{directory}/{checkpoint}/{name}" for name in model_files]
-        snapshot = snapshot_download(
-            repo_id=model_spec["repo"],
-            allow_patterns=patterns,
+    if not config.get("audit_only", False):
+        checkpoint = f"checkpoint-{config['checkpoint']}"
+        model_files = (
+            "config.json",
+            "generation_config.json",
+            "model.safetensors",
+            "special_tokens_map.json",
+            "tokenizer.json",
+            "tokenizer_config.json",
+            "chat_template.jinja",
         )
-        model_path = Path(snapshot) / directory / checkpoint
-        if not (model_path / "model.safetensors").exists():
-            raise FileNotFoundError(f"Selective model download incomplete: {model_path}")
-        assets["models"][model_spec["label"]] = str(model_path)
+        for model_spec in config["models"]:
+            directory = model_spec["directory"]
+            patterns = [f"{directory}/{checkpoint}/{name}" for name in model_files]
+            snapshot = snapshot_download(
+                repo_id=model_spec["repo"],
+                allow_patterns=patterns,
+            )
+            model_path = Path(snapshot) / directory / checkpoint
+            if not (model_path / "model.safetensors").exists():
+                raise FileNotFoundError(
+                    f"Selective model download incomplete: {model_path}"
+                )
+            assets["models"][model_spec["label"]] = str(model_path)
 
     for domain in DOMAINS:
         assets["items"][domain] = hf_hub_download(
@@ -737,6 +740,32 @@ def main() -> None:
     tasks = _prepare_tasks(assets, config)
     audit = _audit_verifier(tasks)
     print("VERIFIER_AUDIT " + json.dumps(audit, sort_keys=True), flush=True)
+    if config.get("audit_only", False):
+        summary = {
+            "comparison": "graph_a_verifier_audit",
+            "assessment": "aligned_with_released_gold_records",
+            "verifier_audit": audit,
+            "provenance": {
+                "dataset_repo": DATA_REPO,
+                "config_repo": CONFIG_REPO,
+                "selection": (
+                    "160 records per domain/difficulty, deterministic seed-based "
+                    "stratification over exact gold plan length"
+                ),
+                "backend": "kubernetes",
+                "gpu_model_available": "NVIDIA RTX PRO 6000 Blackwell",
+                "allocated_gpus": 0,
+                "elapsed_seconds": time.time() - started,
+            },
+            "limitation": (
+                "This validates transition and terminal-success semantics only; "
+                "it is not behavioral evidence for either released-model claim."
+            ),
+        }
+        print("ORX_RESULT_JSON_BEGIN", flush=True)
+        print(json.dumps(summary, sort_keys=True), flush=True)
+        print("ORX_RESULT_JSON_END", flush=True)
+        return
 
     gpu_count = torch.cuda.device_count()
     if gpu_count != 4:
@@ -787,4 +816,3 @@ def main() -> None:
 
 if __name__ == "__main__":
     main()
-

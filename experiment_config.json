@@ -1,5 +1,6 @@
 {
   "comparison": "world_model_final",
+  "audit_only": true,
   "checkpoint": 9000,
   "models": [
     {
@@ -22,4 +23,3 @@
   "bootstrap_samples": 2000,
   "seed": 260724720
 }
-
