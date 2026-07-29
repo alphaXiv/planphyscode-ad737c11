@@ -1,16 +1,16 @@
 {
-  "comparison": "world_model_final",
+  "comparison": "long_horizon_exposure_final",
   "checkpoint": 9000,
   "models": [
     {
-      "label": "without_world_model",
-      "repo": "MultimodalAgent/PlanPhys-Model-Pre-Training-Scaling",
-      "directory": "multi_student_without_cot"
+      "label": "short_only",
+      "repo": "MultimodalAgent/PlanPhys-Model-Pre-Training-Distribution",
+      "directory": "multi_student_2"
     },
     {
-      "label": "with_world_model",
-      "repo": "MultimodalAgent/PlanPhys-Model-Pre-Training-Scaling",
-      "directory": "multi_student"
+      "label": "five_percent_long",
+      "repo": "MultimodalAgent/PlanPhys-Model-Pre-Training-Distribution",
+      "directory": "multi_student_6"
     }
   ],
   "samples_per_cell": 160,
@@ -22,4 +22,3 @@
   "bootstrap_samples": 2000,
   "seed": 260724720
 }
-
