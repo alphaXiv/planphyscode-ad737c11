@@ -1,0 +1,2 @@
+{"schemaVersion":1,"paperId":"2607.24720","title":"PlanPhys released-checkpoint reproduction","description":"Behavioral claims were blocked before inference, while the reconstructed Graph A verifier matched 1,440 released gold records and rejected all terminal-action corruptions.","verdict":"not-reproduced","reportPath":"reports/planphys/report.md","notebookPath":"notebooks/planphys_reproduction.py","compute":{"backend":"kubernetes","gpuModel":"NVIDIA RTX PRO 6000 Blackwell","gpuCount":16,"wallHours":0.094}}
+

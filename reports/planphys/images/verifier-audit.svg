@@ -1,0 +1,28 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1100" height="480" viewBox="0 0 1100 480" role="img" aria-labelledby="title desc">
+  <title id="title">Graph A verifier audit</title>
+  <desc id="desc">Gold terminal success, stored step-count agreement, and corrupted terminal action rejection were each 100 percent over 1,440 tasks.</desc>
+  <rect width="1100" height="480" fill="#ffffff"/>
+  <text x="55" y="56" font-family="Arial, sans-serif" font-size="28" font-weight="700" fill="#0f172a">Reconstructed Graph A verifier audit</text>
+  <text x="55" y="88" font-family="Arial, sans-serif" font-size="16" fill="#64748b">n = 1,440 tasks for each check · three domains · three difficulty bands</text>
+  <g font-family="Arial, sans-serif">
+    <text x="55" y="165" font-size="18" fill="#334155">Gold reaches target</text>
+    <rect x="280" y="139" width="470" height="36" rx="6" fill="#dcfce7"/>
+    <rect x="280" y="139" width="470" height="36" rx="6" fill="#16a34a"/>
+    <text x="730" y="164" text-anchor="end" font-size="18" font-weight="700" fill="#ffffff">100%</text>
+
+    <text x="55" y="255" font-size="18" fill="#334155">Stored steps agree</text>
+    <rect x="280" y="229" width="470" height="36" rx="6" fill="#dcfce7"/>
+    <rect x="280" y="229" width="470" height="36" rx="6" fill="#16a34a"/>
+    <text x="730" y="254" text-anchor="end" font-size="18" font-weight="700" fill="#ffffff">100%</text>
+
+    <text x="55" y="345" font-size="18" fill="#334155">Corruption rejected</text>
+    <rect x="280" y="319" width="470" height="36" rx="6" fill="#dcfce7"/>
+    <rect x="280" y="319" width="470" height="36" rx="6" fill="#16a34a"/>
+    <text x="730" y="344" text-anchor="end" font-size="18" font-weight="700" fill="#ffffff">100%</text>
+
+    <line x1="280" y1="391" x2="750" y2="391" stroke="#cbd5e1"/>
+    <text x="280" y="422" font-size="14" fill="#64748b">0%</text>
+    <text x="515" y="422" text-anchor="middle" font-size="14" fill="#64748b">50%</text>
+    <text x="750" y="422" text-anchor="end" font-size="14" fill="#64748b">100%</text>
+  </g>
+</svg>

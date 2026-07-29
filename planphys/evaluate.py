@@ -458,7 +458,7 @@ def _evaluate_model(
     model = AutoModelForCausalLM.from_pretrained(
         model_path,
         local_files_only=True,
-        torch_dtype=torch.bfloat16,
+        dtype=torch.bfloat16,
         low_cpu_mem_usage=False,
     ).to(f"cuda:{device_index}")
     model.eval()
@@ -484,6 +484,7 @@ def _evaluate_model(
                 padding=True,
                 truncation=True,
                 max_length=4096,
+                return_token_type_ids=False,
             ).to(f"cuda:{device_index}")
             with torch.inference_mode():
                 generated = model.generate(
@@ -787,4 +788,3 @@ def main() -> None:
 
 if __name__ == "__main__":
     main()
-

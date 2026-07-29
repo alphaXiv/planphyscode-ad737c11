@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1100" height="470" viewBox="0 0 1100 470" role="img" aria-labelledby="title desc">
+  <title id="title">Evidence coverage</title>
+  <desc id="desc">World-model behavior and long-horizon exposure behavior were blocked before inference. The Graph A verifier audit completed on 1,440 tasks.</desc>
+  <rect width="1100" height="470" fill="#ffffff"/>
+  <text x="55" y="58" font-family="Arial, sans-serif" font-size="29" font-weight="700" fill="#0f172a">What this reproduction established</text>
+  <text x="55" y="91" font-family="Arial, sans-serif" font-size="17" fill="#475569">Behavioral claims require model outcomes; verifier checks only validate the ruler.</text>
+  <g font-family="Arial, sans-serif">
+    <rect x="55" y="128" width="720" height="82" rx="12" fill="#f1f5f9"/>
+    <text x="82" y="162" font-size="20" font-weight="700" fill="#0f172a">World-model CoT vs direct action</text>
+    <text x="82" y="190" font-size="16" fill="#64748b">Checkpoint 5400 and 9000 outcomes not measured</text>
+    <rect x="600" y="146" width="140" height="42" rx="21" fill="#e2e8f0"/>
+    <text x="670" y="173" text-anchor="middle" font-size="17" font-weight="700" fill="#475569">BLOCKED</text>
+
+    <rect x="55" y="228" width="720" height="82" rx="12" fill="#f1f5f9"/>
+    <text x="82" y="262" font-size="20" font-weight="700" fill="#0f172a">Short-only vs 5%-long exposure</text>
+    <text x="82" y="290" font-size="16" fill="#64748b">Checkpoint 5400 and 9000 outcomes not measured</text>
+    <rect x="600" y="246" width="140" height="42" rx="21" fill="#e2e8f0"/>
+    <text x="670" y="273" text-anchor="middle" font-size="17" font-weight="700" fill="#475569">BLOCKED</text>
+
+    <rect x="55" y="328" width="720" height="92" rx="12" fill="#dcfce7"/>
+    <text x="82" y="364" font-size="20" font-weight="700" fill="#14532d">Graph A transition and terminal verifier</text>
+    <text x="82" y="394" font-size="16" fill="#166534">1,440 tasks · all three checks at 100%</text>
+    <rect x="600" y="350" width="140" height="42" rx="21" fill="#22c55e"/>
+    <text x="670" y="377" text-anchor="middle" font-size="17" font-weight="700" fill="#052e16">COMPLETE</text>
+  </g>
+</svg>

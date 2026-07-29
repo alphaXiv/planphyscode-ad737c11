@@ -1,0 +1,34 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1100" height="560" viewBox="0 0 1100 560" role="img" aria-labelledby="title desc">
+  <title id="title">Published PlanPhys target effects</title>
+  <desc id="desc">The paper reports world-model average-at-eight and long-horizon exposure pass-at-eight improvements for middle and long tasks. Reproduction outcomes were not measured.</desc>
+  <rect width="1100" height="560" fill="#ffffff"/>
+  <text x="55" y="55" font-family="Arial, sans-serif" font-size="28" font-weight="700" fill="#0f172a">Published target effects</text>
+  <text x="55" y="86" font-family="Arial, sans-serif" font-size="16" fill="#64748b">Percent success; darker bars are the paper’s treatment condition.</text>
+  <g font-family="Arial, sans-serif">
+    <text x="55" y="135" font-size="20" font-weight="700" fill="#0f172a">World-model format · avg@8</text>
+    <line x1="230" y1="150" x2="760" y2="150" stroke="#cbd5e1"/>
+    <text x="55" y="192" font-size="17" fill="#334155">Middle</text>
+    <rect x="230" y="170" width="233" height="25" fill="#94a3b8"/>
+    <text x="473" y="190" font-size="15" fill="#334155">46.6 direct</text>
+    <rect x="230" y="205" width="430" height="25" fill="#2563eb"/>
+    <text x="645" y="224" text-anchor="end" font-size="15" fill="#ffffff">85.9 world model</text>
+    <text x="55" y="282" font-size="17" fill="#334155">Long</text>
+    <rect x="230" y="260" width="114" height="25" fill="#94a3b8"/>
+    <text x="354" y="280" font-size="15" fill="#334155">22.7 direct</text>
+    <rect x="230" y="295" width="343" height="25" fill="#2563eb"/>
+    <text x="558" y="314" text-anchor="end" font-size="15" fill="#ffffff">68.5 world model</text>
+
+    <text x="55" y="382" font-size="20" font-weight="700" fill="#0f172a">Training distribution · pass@8</text>
+    <line x1="230" y1="397" x2="760" y2="397" stroke="#cbd5e1"/>
+    <text x="55" y="439" font-size="17" fill="#334155">Middle</text>
+    <rect x="230" y="417" width="5" height="25" fill="#94a3b8"/>
+    <text x="245" y="437" font-size="15" fill="#334155">0.83 short-only</text>
+    <rect x="230" y="452" width="236" height="25" fill="#0f766e"/>
+    <text x="456" y="471" text-anchor="end" font-size="15" fill="#ffffff">47.29 with 5% long</text>
+    <text x="55" y="524" font-size="17" fill="#334155">Long</text>
+    <circle cx="233" cy="512" r="3" fill="#94a3b8"/>
+    <text x="245" y="517" font-size="15" fill="#334155">0.00 short-only</text>
+    <rect x="410" y="499" width="57" height="25" fill="#0f766e"/>
+    <text x="477" y="519" font-size="15" fill="#134e4a">11.46 with 5% long</text>
+  </g>
+</svg>
