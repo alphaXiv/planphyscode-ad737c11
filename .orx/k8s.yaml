@@ -1,0 +1,41 @@
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: planphys-{{ORX_RUN}}
+spec:
+  activeDeadlineSeconds: 39600
+  backoffLimit: 0
+  template:
+    metadata:
+      labels:
+        app: planphys-reproduction
+    spec:
+      restartPolicy: Never
+      containers:
+        - name: evaluator
+          image: pytorch/pytorch:2.8.0-cuda12.8-cudnn9-runtime
+          command: ["bash", "-c", "$ORX_SCRIPT"]
+          env:
+            - name: HF_HOME
+              value: /cache/huggingface
+            - name: PIP_CACHE_DIR
+              value: /cache/pip
+            - name: TOKENIZERS_PARALLELISM
+              value: "false"
+          resources:
+            requests:
+              nvidia.com/gpu: "4"
+              cpu: "16"
+              memory: 96Gi
+            limits:
+              nvidia.com/gpu: "4"
+              cpu: "16"
+              memory: 96Gi
+          volumeMounts:
+            - name: cache
+              mountPath: /cache
+      volumes:
+        - name: cache
+          emptyDir:
+            sizeLimit: 30Gi
+
