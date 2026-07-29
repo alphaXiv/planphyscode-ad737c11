@@ -14,7 +14,7 @@ spec:
       containers:
         - name: evaluator
           image: pytorch/pytorch:2.8.0-cuda12.8-cudnn9-runtime
-          command: ["bash", "-c", "$ORX_SCRIPT"]
+          command: ["bash", "-c", "bash -lc \"$ORX_SCRIPT\""]
           env:
             - name: HF_HOME
               value: /cache/huggingface
@@ -38,4 +38,3 @@ spec:
         - name: cache
           emptyDir:
             sizeLimit: 30Gi
-
